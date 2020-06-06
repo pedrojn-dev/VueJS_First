@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="js/vue.js"></script>
+    <title>Vue</title>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <ul>
+            <li v-for="person in people">{{ person }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(person, index) in people">
+                {{ index }} - {{ person }}
+                <span v-if="index == people.length -1">Este es el último elemento</span>
+            </li>
+        </ul>
+
+        <button class="btn btn-primary" v-on:click="filterPeople">Filtrar más de 5 caracteres</button>
+
+        <ul>
+            <li v-for="(person, index) in ArrayObjects">
+                {{ index }} - {{ person.name }} - {{ person.age }}
+                <span v-if="index == people.length -1">Este es el último elemento</span>
+            </li>
+        </ul>
+
+        <input v-model="filtro_edad" type="text">
+
+        <button class="btn btn-primary" v-on:click="filterPeopleObjects">Filtrar por edad</button>
+
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
